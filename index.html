@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RANLIRAN concept homepage</title>
+<meta name="description" content="Concept homepage for RANLIRAN: trips, events and a day in Athens, hosted by Ran and Liran.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://static.wixstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FAF9F6;      /* whitewash */
+  --stone:#E8E4DA;      /* limestone band */
+  --ink:#0E2A36;        /* Aegean at dusk */
+  --slate:#566D78;      /* secondary text */
+  --brass:#9C7A35;      /* the lamps in the hero photograph */
+  --brass-lt:#D3B578;
+  --line:rgba(14,42,54,.16);
+  --gap:clamp(1rem,2.2vw,2rem);
+  --pad:clamp(1.25rem,4.5vw,4rem);
+  --band:clamp(4.5rem,11vw,10rem);
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --text:"Jost","Avenir Next","Century Gothic",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.6 var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;width:100%;height:100%;object-fit:cover;color:transparent}
+a{color:inherit}
+h1,h2,h3,p,figure,ul,ol,blockquote,dl{margin:0}
+strong,b{font-weight:500}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:88rem;margin-inline:auto;padding-inline:var(--pad)}
+.display{font-family:var(--display);font-weight:400;font-optical-sizing:auto;letter-spacing:-.012em;text-wrap:balance}
+h1.display{font-size:clamp(2.75rem,7.1vw,6.4rem);line-height:.98;letter-spacing:-.03em}
+h2.display{font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:1.04;letter-spacing:-.025em}
+h3.display{font-size:clamp(1.6rem,2.4vw,2.1rem);line-height:1.12}
+.lede{font-size:clamp(1.0625rem,1.35vw,1.25rem);line-height:1.55;max-width:34rem}
+.quiet{color:var(--slate)}
+.frame{position:relative;overflow:hidden;background:var(--stone)}
+.tlink{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3em;text-decoration-color:var(--brass)}
+.tlink:hover{text-decoration-thickness:2px}
+.btn{display:inline-block;font:500 1rem/1 var(--text);letter-spacing:.02em;text-decoration:none;padding:1.05rem 1.7rem;border:1px solid var(--ink);background:var(--ink);color:var(--white);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn--light{background:var(--white);border-color:var(--white);color:var(--ink)}
+.btn--light:hover{background:transparent;color:var(--white)}
+
+/* concept ribbon */
+.ribbon{background:var(--ink);color:var(--white);font-size:.875rem;line-height:1.4}
+.ribbon .wrap{display:flex;gap:.5rem 1.5rem;justify-content:space-between;flex-wrap:wrap;padding-block:.6rem}
+.ribbon a{text-decoration-color:var(--brass-lt)}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-block:1.6rem}
+.mark{font:500 1.05rem/1 var(--text);letter-spacing:.34em;text-decoration:none}
+.nav ul{display:flex;gap:clamp(1.25rem,2.6vw,2.6rem)}
+.nav li a{text-decoration:none;font-size:1rem}
+.nav li a:hover{text-decoration:underline;text-underline-offset:.4em;text-decoration-color:var(--brass)}
+.nav .btn{padding:.8rem 1.25rem;font-size:.9375rem}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);padding-top:clamp(1.5rem,4vw,3.5rem);padding-bottom:clamp(5rem,9vw,8rem)}
+.hero__copy{grid-column:1 / span 7;grid-row:1;align-self:start;padding-top:clamp(1rem,5vw,5rem);position:relative;z-index:3}
+.hero__copy .lede{margin-top:clamp(1.5rem,2.6vw,2.4rem);max-width:27rem}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:2.2rem}
+.hero__main{grid-column:8 / -1;grid-row:1;aspect-ratio:4/5}
+.hero__inset{grid-column:6 / span 3;grid-row:1;align-self:end;aspect-ratio:1;z-index:2;transform:translateY(clamp(2rem,4vw,3.5rem));outline:clamp(6px,.8vw,12px) solid var(--white)}
+.cap{font-size:.875rem;color:var(--slate);margin-top:.7rem}
+.hero__cap{grid-column:8 / -1;grid-row:2;text-align:right}
+@media (prefers-reduced-motion:no-preference){
+  .hero__main{animation:unveil 1.2s cubic-bezier(.2,.7,.15,1) both}
+  .hero__inset{animation:unveil 1.2s .25s cubic-bezier(.2,.7,.15,1) both}
+  .hero__copy{animation:rise 1s .15s cubic-bezier(.2,.7,.15,1) both}
+}
+@keyframes unveil{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* hosts */
+.hosts{background:var(--stone);padding-block:var(--band)}
+.hosts .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:center}
+.hosts__photo{grid-column:1 / span 6;aspect-ratio:16/10}
+.hosts__copy{grid-column:8 / -1}
+.hosts__copy p{margin-top:1.4rem}
+.hosts__copy .tlink{display:inline-block;margin-top:1.8rem}
+
+/* what we plan */
+.plan{padding-block:var(--band)}
+.plan__head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.plan__head p{max-width:26rem}
+.plan__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.plan__grid .frame{display:block;aspect-ratio:3/4}
+.plan__grid h3{margin-top:1.4rem}
+.plan__grid p{margin-top:.6rem;max-width:24rem;color:var(--slate)}
+.plan__grid .tlink{display:inline-block;margin-top:1rem}
+.plan__grid a.frame img{transition:transform .9s cubic-bezier(.2,.7,.15,1)}
+.plan__grid a.frame:hover img{transform:scale(1.03)}
+
+/* the tour */
+.tour{background:var(--stone);padding-block:var(--band)}
+.tour__head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:end;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.tour__head h2{grid-column:1 / span 7}
+.tour__head div{grid-column:9 / -1}
+.tour__name{font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--brass);margin-bottom:1rem}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
+.trio li:nth-child(2){margin-top:clamp(2rem,6vw,6rem)}
+.trio .frame{aspect-ratio:3/4}
+.trio .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,24,32,.58),rgba(8,24,32,0) 44%)}
+.trio .word{position:absolute;left:clamp(.9rem,1.6vw,1.6rem);top:clamp(.5rem,1.1vw,1.1rem);z-index:1;font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(3.6rem,8.4vw,8rem);line-height:1;letter-spacing:-.02em;color:#fff}
+.trio p{margin-top:1.1rem;max-width:24rem}
+.tour__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem 3rem;margin-top:clamp(2.5rem,5vw,4.5rem);padding-top:1.6rem;border-top:1px solid var(--line)}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 2.75rem;font-size:1.0625rem}
+.facts dt{font-size:.875rem;color:var(--slate)}
+.facts dd{margin:0;font-family:var(--display);font-size:1.45rem;line-height:1.3}
+.facts div{min-width:7rem}
+
+/* events */
+.events{background:var(--ink);color:var(--white);padding-block:var(--band)}
+.events .quiet{color:#A9BBC3}
+.events__top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:start}
+.events__copy{grid-column:1 / span 5;padding-top:clamp(0rem,3vw,3rem)}
+.events__copy .lede{margin-top:1.5rem}
+.kinds{margin-top:2.2rem;border-top:1px solid rgba(250,249,246,.2)}
+.kinds li{font-family:var(--display);font-size:clamp(1.3rem,1.9vw,1.65rem);line-height:1.2;padding:.95rem 0;border-bottom:1px solid rgba(250,249,246,.2)}
+.events__copy .btn{margin-top:2.4rem}
+.events__media{grid-column:7 / -1;position:relative;margin-bottom:clamp(3rem,7vw,6rem)}
+.events__photo{aspect-ratio:5/4;background:#16384A}
+.events__side{position:absolute;left:calc(-1 * clamp(1rem,4vw,4rem));bottom:calc(-1 * clamp(3rem,7vw,6rem));width:36%;aspect-ratio:4/5;z-index:1;outline:clamp(6px,.8vw,12px) solid var(--ink);background:#16384A}
+.cases{margin-top:clamp(3.5rem,8vw,7rem)}
+.cases__label{font-family:var(--display);font-style:italic;font-size:1.2rem;color:var(--brass-lt);margin-bottom:1.4rem}
+.cases__grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:var(--gap)}
+.case{background:var(--white);color:var(--ink);padding:clamp(1.5rem,3vw,2.75rem)}
+.case__meta{display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;font-size:.9375rem;color:var(--slate);margin-top:.9rem}
+.case blockquote{font-family:var(--display);font-size:clamp(1.25rem,1.8vw,1.55rem);line-height:1.3;margin-top:1.8rem;padding-top:1.6rem;border-top:1px solid var(--line)}
+.case cite{display:block;font:400 .9375rem/1.4 var(--text);color:var(--slate);margin-top:1rem}
+.slot{border:1px dashed rgba(211,181,120,.7);padding:clamp(1.25rem,2.4vw,2rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:14rem}
+.slot b{font:400 1.35rem/1.2 var(--display)}
+.slot span{font-size:.9375rem;color:#A9BBC3;margin-top:.6rem}
+.slot em{font-style:italic;font-family:var(--display);color:var(--brass-lt);font-size:1rem;margin-bottom:auto}
+
+/* enquiry */
+.ask{padding-block:var(--band)}
+.ask .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);align-items:center}
+.ask__photo{grid-column:1 / span 4;aspect-ratio:3/4}
+.ask__body{grid-column:6 / -1}
+.ask form{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem var(--gap);margin-top:2.6rem;max-width:44rem}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field label{font-size:.9375rem;color:var(--slate)}
+.field input,.field select{font:400 1.125rem/1.3 var(--text);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;padding:.55rem 0;width:100%;appearance:none;-webkit-appearance:none}
+.field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230E2A36' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right .2rem center}
+.field input::placeholder{color:#8FA0A8}
+.ask__send{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem;margin-top:.6rem}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding-block:clamp(2.5rem,5vw,4rem)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:2rem}
+.foot .mark{font-size:clamp(1.6rem,4.6vw,4rem);letter-spacing:.3em;font-weight:400}
+.foot ul{display:flex;flex-wrap:wrap;gap:.4rem 2rem}
+.foot small{display:block;font-size:.875rem;color:var(--slate);margin-top:.8rem}
+
+/* proposal */
+.prop{background:var(--stone);border-top:10px solid var(--ink);padding-block:var(--band)}
+.prop .wrap{max-width:74rem}
+.prop__by{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;font-size:.9375rem;color:var(--slate);padding-bottom:1.2rem;border-bottom:1px solid var(--line);margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.prop__by a{color:var(--ink)}
+.prop__intro{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap)}
+.prop__intro h2{grid-column:1 / span 5}
+.prop__intro p{grid-column:7 / -1;align-self:end}
+.prop__block{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gap);margin-top:clamp(3rem,6vw,5.5rem);padding-top:1.6rem;border-top:1px solid var(--line)}
+.prop__block > h3{grid-column:1 / span 4}
+.prop__block > div,.prop__block > ol,.prop__block > ul{grid-column:6 / -1}
+.pages li{display:grid;grid-template-columns:2.2rem 1fr;gap:.2rem 1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.pages li:first-child{padding-top:0}
+.pages i{font:italic 400 1.3rem/1.3 var(--display);color:var(--brass)}
+.pages b{font:400 1.3rem/1.3 var(--display)}
+.pages span{grid-column:2;color:var(--slate)}
+.incl li{padding:.95rem 0;border-bottom:1px solid var(--line)}
+.incl li:first-child{padding-top:0}
+.incl b{font-weight:500}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.route{background:var(--white);padding:clamp(1.5rem,3vw,2.5rem);display:flex;flex-direction:column}
+.route h4{margin:0;font:500 1.0625rem/1.3 var(--text)}
+.route .price{color:var(--ink);font-family:var(--display);font-size:clamp(2.6rem,5vw,4rem);line-height:1;margin:1.4rem 0 1.2rem;letter-spacing:-.02em}
+.route p{color:var(--slate)}
+.monthly{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.5rem}
+.monthly .price{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);line-height:1;letter-spacing:-.02em}
+.prop__block p + p{margin-top:1rem}
+.work li{padding:.95rem 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 2rem}
+.work li:first-child{padding-top:0}
+.work span{color:var(--slate)}
+.prop__next{margin-top:clamp(3rem,6vw,5.5rem);background:var(--ink);color:var(--white);padding:clamp(2rem,5vw,4rem);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem 3rem}
+.prop__next p{color:#A9BBC3;margin-top:.6rem}
+
+/* tablet and phone */
+@media (max-width:60rem){
+  .nav ul{display:none}
+  .hero__copy{grid-column:1 / -1;padding-top:.5rem}
+  .hero__main{grid-column:3 / -1;grid-row:2;margin-top:2.5rem}
+  .hero__inset{grid-column:1 / span 5;grid-row:2;transform:translateY(2rem)}
+  .hero__cap{grid-row:3;grid-column:1 / -1}
+  .hosts__photo,.hosts__copy{grid-column:1 / -1}
+  .hosts__copy{margin-top:2rem}
+  .tour__head h2,.tour__head div{grid-column:1 / -1}
+  .tour__head div{margin-top:1.5rem}
+  .events__copy,.events__media{grid-column:1 / -1}
+  .events__media{margin-top:3rem}
+  .events__side{left:auto;right:1rem;width:38%}
+  .cases__grid{grid-template-columns:1fr 1fr}
+  .case{grid-column:1 / -1}
+  .ask__photo{grid-column:1 / span 5}
+  .ask__body{grid-column:1 / -1;grid-row:1;margin-bottom:3rem}
+  .prop__intro h2,.prop__intro p,.prop__block > h3,.prop__block > div,.prop__block > ol,.prop__block > ul{grid-column:1 / -1}
+  .prop__intro p,.prop__block > div,.prop__block > ol,.prop__block > ul{margin-top:1.5rem}
+}
+@media (max-width:40rem){
+  .plan__grid,.trio{grid-template-columns:1fr;gap:3rem}
+  .trio li:nth-child(2){margin-top:0}
+  .plan__grid .frame,.trio .frame{aspect-ratio:4/5}
+  .trio .word{font-size:5.5rem}
+  .cases__grid,.routes{grid-template-columns:1fr}
+  .slot{min-height:10rem}
+  .ask form{grid-template-columns:1fr}
+  .ask__photo{grid-column:1 / span 8}
+  .hero__main{grid-column:2 / -1}
+  .hero__inset{grid-column:1 / span 6}
+  .mark{letter-spacing:.26em}
+}
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  <div class="wrap">
+    <span>Concept homepage for RANLIRAN, by thevelleman.com</span>
+    <a href="#proposal">Read the proposal</a>
+  </div>
+</div>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="mark" href="#top" aria-label="RANLIRAN home">RANLIRAN</a>
+    <ul>
+      <li><a href="#plan">Travel</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#tour">The Athens tour</a></li>
+      <li><a href="#plan">Hotels</a></li>
+      <li><a href="#hosts">About</a></li>
+    </ul>
+    <a class="btn" href="#ask">Plan with us</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <div class="hero__copy">
+      <h1 class="display">Greece, hosted by two people who live here.</h1>
+      <p class="lede">Trips, events and one very good day in Athens. Planned by Ran and Liran, start to finish.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#ask">Plan with us</a>
+        <a class="tlink" href="#tour">See the Athens tour</a>
+      </div>
+    </div>
+    <figure class="frame hero__main">
+      <img src="https://static.wixstatic.com/media/f2a9e9_57e3318d8ab0470eb65eeaddcce40d1a~mv2.jpg/v1/fill/w_1200,h_1500,al_c,q_85/athens-suite.jpg" width="1200" height="1500" alt="A white hotel suite in Athens with brass lamps and the Acropolis in the open window" fetchpriority="high">
+    </figure>
+    <figure class="frame hero__inset">
+      <img src="https://static.wixstatic.com/media/f2a9e9_363b0e5672e741bc9f6e7102d478289b~mv2.png/v1/fill/w_800,h_800,al_c,q_85/ran-and-liran.jpg" width="800" height="800" alt="Ran and Liran sitting on the bow of a yacht at sea">
+    </figure>
+    <p class="cap hero__cap">Athens, with the Acropolis in the window. Inset: Ran and Liran.</p>
+  </section>
+
+  <section class="hosts" id="hosts">
+    <div class="wrap">
+      <figure class="frame hosts__photo">
+        <img src="https://static.wixstatic.com/media/a934fb_b9715020ee1b428cb61122dd926a9c79~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/ran-liran-portrait.jpg" width="1600" height="1000" alt="Black and white portrait of Ran and Liran in suits" loading="lazy">
+      </figure>
+      <div class="hosts__copy">
+        <h2 class="display">One of us comes from kitchens. The other from fashion.</h2>
+        <p>We are Ran Sapojnik and Liran Shpiegel. For more than a decade we produced events for some of the largest companies in Israel.</p>
+        <p>Then we moved to Athens. Five years on, we know which table to book, which island suits which group, and which hotel is worth the money.</p>
+        <a class="tlink" href="#hosts">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan wrap" id="plan">
+    <div class="plan__head">
+      <h2 class="display">What we plan</h2>
+      <p class="quiet">You tell us who is coming and what you want to feel. We handle the rest, down to the transfers.</p>
+    </div>
+    <ul class="plan__grid">
+      <li>
+        <a class="frame" href="#ask" aria-label="Travel">
+          <img src="https://static.wixstatic.com/media/f2a9e9_35d96865945c45efbbc9fb8fdb0ab6db~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/milos.jpg" width="900" height="1200" alt="White volcanic rock and turquoise water at Sarakiniko, Milos" loading="lazy">
+        </a>
+        <h3 class="display">Travel</h3>
+        <p>Routes built around you. Private transfers, a yacht for a day or a week between islands, and the right base in each place.</p>
+        <a class="tlink" href="#ask">Plan a trip</a>
+      </li>
+      <li>
+        <a class="frame" href="#events" aria-label="Events">
+          <img src="https://static.wixstatic.com/media/f2a9e9_249a1d20300945438f54c2ecaed75989~mv2.png/v1/fill/w_900,h_1200,al_c,q_85/toast.jpg" width="900" height="1200" alt="Guests raising cocktail glasses together, seen from above" loading="lazy">
+        </a>
+        <h3 class="display">Events</h3>
+        <p>Company retreats, birthdays, weddings and bachelor weekends, produced from the first idea to the last toast.</p>
+        <a class="tlink" href="#events">See events</a>
+      </li>
+      <li>
+        <a class="frame" href="#ask" aria-label="Hotels">
+          <img src="https://static.wixstatic.com/media/19123b_17dc9ce725b742f581f29f532c37820f~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/island-suite.jpg" width="900" height="1200" alt="A suite on a Greek island opening onto a terrace and the sea" loading="lazy">
+        </a>
+        <h3 class="display">Hotels</h3>
+        <p>Resorts, boutique hotels, villas and beach houses. We have stayed in them and vetted them ourselves.</p>
+        <a class="tlink" href="#ask">Ask about hotels</a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="tour" id="tour">
+    <div class="wrap">
+      <div class="tour__head">
+        <h2 class="display">Spend a day in Athens with us.</h2>
+        <div>
+          <p class="tour__name">The Athens Culinary &amp; Lifestyle Tour</p>
+          <p>We tried the city for years: the good, the disappointing and the surprising. This day is what stayed. It skips the tourist trail and keeps to the warm, chic corners.</p>
+        </div>
+      </div>
+      <ol class="trio">
+        <li>
+          <figure class="frame">
+            <img src="https://static.wixstatic.com/media/f2a9e9_6c707905fc21460180cc8e6eac7ba734~mv2.png/v1/fill/w_900,h_1200,al_c,q_85/eat.jpg" width="900" height="1200" alt="A restaurant table covered in shared plates, seen from above" loading="lazy">
+            <span class="word" aria-hidden="true">Eat</span>
+          </figure>
+          <p><strong>Eat.</strong> Tastings that move between traditional Athenian cooking and the new kitchens, with time for every glass of wine.</p>
+        </li>
+        <li>
+          <figure class="frame">
+            <img src="https://static.wixstatic.com/media/f2a9e9_a881cf245f1a4d69a9928c9e4872d0d0~mv2.png/v1/fill/w_900,h_1200,al_c,q_85/walk.jpg" width="900" height="1200" alt="Street art of red lips painted on a shop shutter in Athens" loading="lazy">
+            <span class="word" aria-hidden="true">Walk</span>
+          </figure>
+          <p><strong>Walk.</strong> The city centre on foot, through neighbourhoods with their own character, street art and graffiti.</p>
+        </li>
+        <li>
+          <figure class="frame">
+            <img src="https://static.wixstatic.com/media/f2a9e9_a4b22c4960fe4ee2b36ed4544629febd~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/love.jpg" width="900" height="1200" alt="A group of guests sitting together on whitewashed steps below the Acropolis" loading="lazy">
+            <span class="word" aria-hidden="true">Love</span>
+          </figure>
+          <p><strong>Love.</strong> Hosting is what we care about most. You are our guests for the day, and we look after you like it.</p>
+        </li>
+      </ol>
+      <div class="tour__foot">
+        <dl class="facts">
+          <div><dt>Length</dt><dd>About 4 hours</dd></div>
+          <div><dt>Group</dt><dd>Small, by design</dd></div>
+          <div><dt>Hosts</dt><dd>Ran and Liran</dd></div>
+        </dl>
+        <a class="btn" href="#ask">Ask for tour dates</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <div class="wrap">
+      <div class="events__top">
+        <div class="events__copy">
+          <h2 class="display">Events your guests keep talking about.</h2>
+          <p class="lede quiet">Flights, hotels, venues, food, boats and the surprises in between. One team, from the first call to the flight home.</p>
+          <ul class="kinds">
+            <li>Company retreats and offsites</li>
+            <li>Weddings</li>
+            <li>Birthdays and anniversaries</li>
+            <li>Bachelor and bachelorette weekends</li>
+          </ul>
+          <a class="btn btn--light" href="#ask">Plan an event</a>
+        </div>
+        <div class="events__media">
+        <figure class="frame events__photo">
+          <img src="https://static.wixstatic.com/media/19123b_aebab19072614291ab6de270cd66ff1e~mv2.jpg/v1/fill/w_1600,h_1280,al_c,q_85/island-terrace.jpg" width="1600" height="1280" alt="Guests gathered beside a pool and two olive trees on a terrace above the sea" loading="lazy">
+        </figure>
+        <figure class="frame events__side">
+          <img src="https://static.wixstatic.com/media/f2a9e9_bea15885edd3485e80e4ea2cb4fc15fc~mv2.png/v1/fill/w_800,h_1000,al_c,q_85/table.jpg" width="800" height="1000" alt="A dinner table set beneath a glowing round lamp" loading="lazy">
+        </figure>
+        </div>
+      </div>
+
+      <div class="cases">
+        <p class="cases__label">Case studies</p>
+        <div class="cases__grid">
+          <article class="case">
+            <h3 class="display">A tech team opens the year in Athens</h3>
+            <p class="case__meta"><span>Company event</span><span>Three days</span><span>Athens, 2022</span></p>
+            <blockquote>
+              &ldquo;The hotel was a big blast, the culinary trip, transportation, everything was perfect.&rdquo;
+              <cite>Sarit Roznek, who brought her team</cite>
+            </blockquote>
+          </article>
+          <div class="slot">
+            <em>Concept note</em>
+            <b>Your next case study</b>
+            <span>You add it from the admin panel: photos, three facts and a quote.</span>
+          </div>
+          <div class="slot">
+            <em>Concept note</em>
+            <b>And the one after</b>
+            <span>Each one becomes its own page that Google can find.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ask" id="ask">
+    <div class="wrap">
+      <figure class="frame ask__photo">
+        <img src="https://static.wixstatic.com/media/f2a9e9_da1dc0dd6b9c4929adaa36865c64b0e0~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_85/cheers.jpg" width="900" height="1200" alt="Two cocktails with fresh mint raised against a sunny view" loading="lazy">
+      </figure>
+      <div class="ask__body">
+        <h2 class="display">Tell us what you have in mind.</h2>
+        <p class="lede quiet" style="margin-top:1.2rem">Four answers are enough to start. We reply ourselves.</p>
+        <form id="askForm" novalidate>
+          <div class="field">
+            <label for="f-kind">What are you planning?</label>
+            <select id="f-kind" name="kind">
+              <option>A trip</option>
+              <option>An event</option>
+              <option>The Athens tour</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-when">When?</label>
+            <input id="f-when" name="when" type="text" placeholder="May, or exact dates">
+          </div>
+          <div class="field">
+            <label for="f-size">How many of you?</label>
+            <input id="f-size" name="size" type="text" inputmode="numeric" placeholder="8">
+          </div>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="ask__send">
+            <button class="btn" type="submit">Send on WhatsApp</button>
+            <a class="tlink" href="mailto:ranliran.travel@gmail.com">Or send an email</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="mark" href="#top">RANLIRAN</a>
+      <small>Travel, events and experiences. Athens, Greece.</small>
+    </div>
+    <ul>
+      <li><a class="tlink" href="https://www.instagram.com/ranliran_travel/">Instagram</a></li>
+      <li><a class="tlink" href="https://wa.me/972545518815">WhatsApp</a></li>
+      <li><a class="tlink" href="mailto:ranliran.travel@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<section class="prop" id="proposal" aria-labelledby="prop-h">
+  <div class="wrap">
+    <div class="prop__by">
+      <span>Proposal for RANLIRAN, October 2026</span>
+      <span>Patrick Velleman, <a class="tlink" href="https://www.thevelleman.com">thevelleman.com</a>, Athens</span>
+    </div>
+
+    <div class="prop__intro">
+      <h2 class="display" id="prop-h">The proposal</h2>
+      <p class="lede" style="max-width:none">Ran and Liran, the page above is a first direction for your new site. Every photograph on it is yours. Here is what we would build, what it costs and how long it takes.</p>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">Four pages at launch</h3>
+      <ol class="pages">
+        <li><i>1</i><b>Home</b><span>The long page above, finished with you.</span></li>
+        <li><i>2</i><b>Events</b><span>Every event type, plus your case studies.</span></li>
+        <li><i>3</i><b>The Athens Culinary &amp; Lifestyle Tour</b><span>Its own page, so people searching for a food tour in Athens can find it.</span></li>
+        <li><i>4</i><b>Contact</b><span>Enquiries arrive on your WhatsApp and in your inbox.</span></li>
+      </ol>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">Built in</h3>
+      <ul class="incl">
+        <li><b>An admin panel.</b> You change text and photos and add case studies yourselves. The layout stays locked, so the site keeps its look.</li>
+        <li><b>Hand-written code.</b> No template and no page builder. The site loads fast on a phone, where your Instagram visitors arrive.</li>
+        <li><b>A search foundation.</b> Structure, page titles and data that Google and AI assistants read.</li>
+        <li><b>Your photography.</b> We select, crop and grade it. A shoot, if you want one, is quoted separately.</li>
+        <li><b>English at launch.</b> Hebrew can follow as a separate step.</li>
+      </ul>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">Two ways to do it</h3>
+      <div class="routes">
+        <div class="route">
+          <h4>We design and build</h4>
+          <p class="price">&euro;3,900</p>
+          <p>Visual direction, design, copy and build, in the direction shown above.</p>
+        </div>
+        <div class="route">
+          <h4>Your designer, our build</h4>
+          <p class="price">&euro;2,900</p>
+          <p>Your designer delivers final files for every page. We build them exactly, with the same admin panel and search foundation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">After launch, the site grows</h3>
+      <div>
+        <p class="monthly"><span class="price">&euro;350</span><span>per month, optional</span></p>
+        <p style="margin-top:1.4rem">Hosting, care and updates, plus two new pages every month: a destination, a hotel, an event type. Each one is written to be found.</p>
+        <p>Search results build over months. This is how the site earns them, and how the destinations and hotel collection arrive.</p>
+      </div>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">Terms and timing</h3>
+      <div>
+        <p>50% books the start. 50% at launch.</p>
+        <p>Six weeks from deposit and content to a live site. With your own designer, the six weeks start when the final files arrive.</p>
+      </div>
+    </div>
+
+    <div class="prop__block">
+      <h3 class="display">Work you can open</h3>
+      <ul class="work">
+        <li><a class="tlink" href="https://rodos.thevelleman.com/">Rodos Palace</a><span>Five-star hotel, concept</span></li>
+        <li><a class="tlink" href="https://nalu.thevelleman.com/">N&#257;lu</a><span>Beach bar on the Athenian Riviera, concept</span></li>
+        <li><a class="tlink" href="https://www.do-athens.com/">DoAthens</a><span>Athens city guide with an audience of 60,000</span></li>
+        <li><a class="tlink" href="https://daedaloslabs.com/work">Daedalos Labs</a><span>Our engineering partner in Athens</span></li>
+      </ul>
+    </div>
+
+    <div class="prop__next">
+      <div>
+        <h3 class="display">Which route suits you?</h3>
+        <p>Reply to Patrick and the start date is yours.</p>
+      </div>
+      <a class="btn btn--light" href="mailto:info@thevelleman.com?subject=RANLIRAN%20website">Reply to Patrick</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('askForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var lines = ['Hi Ran and Liran,', 'We are planning: ' + f.kind.value];
+  if (f.when.value.trim()) lines.push('When: ' + f.when.value.trim());
+  if (f.size.value.trim()) lines.push('Group size: ' + f.size.value.trim());
+  if (f.name.value.trim()) lines.push('Name: ' + f.name.value.trim());
+  window.open('https://wa.me/972545518815?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
